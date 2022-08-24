@@ -23,19 +23,24 @@ class PermissionController extends Controller
         ]);
         Permission::create($validated);
         // route('admin.roles.index');
-        return redirect(route('admin.permissions.index'));
+        return redirect(route('admin.permissions.index'))->with('message','Permission Insert successfully.');
     }
 
     public function edit(Permission $permission){
         return view('admin.permissions.edit',compact('permission'));
     }
 
-    public function update(Request $request,Role $permission){
+    public function update(Request $request,Permission $permission){
         $validated = $request->validate([
             'name' => ['required','min:3']
         ]);
         $permission->update($validated);
         // route('admin.roles.index');
-        return redirect(route('admin.permissions.index'));
+        return redirect(route('admin.permissions.index'))->with('message','Permission updated successfully.');
+    }
+
+    public function destroy(Permission $permission){
+        $role->delete();
+        return back()->with('message','Permission Deleted successfully.');
     }
 }

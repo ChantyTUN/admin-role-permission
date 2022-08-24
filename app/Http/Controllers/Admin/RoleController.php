@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class RoleController extends Controller
 {
     public function index(){
-        $roles = Role::all();
+        $roles = Role::whereNotIN('name',['admin'])->get();
         return view('admin.roles.index', compact('roles'));
     }
     public function create(){
@@ -22,7 +22,7 @@ class RoleController extends Controller
         ]);
         Role::create($validated);
         // route('admin.roles.index');
-        return redirect(route('admin.roles.index'));
+        return redirect(route('admin.roles.index'))->with('message','Role Insert successfully.');
     }
 
     public function edit(Role $role){
@@ -35,7 +35,12 @@ class RoleController extends Controller
         ]);
         $role->update($validated);
         // route('admin.roles.index');
-        return redirect(route('admin.roles.index'));
+        return redirect(route('admin.roles.index'))->with('message','Role Updated successfully.');
+    }
+
+    public function destroy(Role $role){
+        $role->delete();
+        return back()->with('message','Role Deleted successfully.');
     }
     
 }

@@ -23,6 +23,48 @@
                           </div>
                         </form>
                       </div>
+                       <!-- Role Permission -->
+                       <div class="mt-6 p-2">
+                        <h2 class="text-2xl font-semibold">Roles</h2>
+                        <div class="flex space-x-4 mt-4 p-2">
+                          @if($permission->roles)
+                            @foreach($permission->roles as $permission_role)
+                              <form action="{{ route('admin.permissions.roles.remove',[$permission->id, $permission_role->id]) }}" method="post" class="px-4 py-2 bg-red-500 hover:to-red-700 rounded-md" style="background-color: #ff8c8c;"
+                                        onsubmit="return confirm('Are you sure to deleted this?');"
+                                    >
+                                    @csrf 
+                                    @method('DELETE')
+                                    <button type="submit">{{ $permission_role->name }}</button>   
+                              </form>
+                            @endforeach
+                          @endif 
+                        </div>
+                      </div>
+                      <div class="max-w-xl mt-6">
+                      <form method="POST" action="{{ route('admin.permissions.roles', $permission->id) }}">
+                            @csrf
+                            <div class="sm:col-span-6">
+                                <label for="role"
+                                    class="block text-sm font-medium text-gray-700">role</label>
+                                <select id="role" name="role" autocomplete="role-name"
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('role')
+                                <span class="text-red-400 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="sm:col-span-6 pt-5">
+                          <button type="submit"
+                              class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-md">Assign</button>
+                        </div>
+                      </form>
+                      </div>
+
+                      <!-- Role Permission -->
                       
                 </div>
             </div>

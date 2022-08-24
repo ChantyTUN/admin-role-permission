@@ -5,7 +5,7 @@
         <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
             <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
             <div class="flex justify-end p-2">
-                <a href="" class="px-4 py-2 bg-green hover:bg-green-500 rounded-md" style="background-color: #30beec;">Create Permission</a>
+                <a href="{{ route('admin.permissions.create') }}" class="px-4 py-2 bg-green hover:bg-green-500 rounded-md" style="background-color: #30beec;">Create Permission</a>
             </div>
             <table class="min-w-full w-full">
                     <thead>

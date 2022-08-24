@@ -25,7 +25,7 @@
                       </div>
                        <!-- Role Permission -->
                        <div class="mt-6 p-2">
-                        <h2 class="text-2xl font-semibold">Roles</h2>
+                        <h2 class="text-2xl font-semibold">Roles Permissions</h2>
                         <div class="flex space-x-4 mt-4 p-2">
                           @if($permission->roles)
                             @foreach($permission->roles as $permission_role)

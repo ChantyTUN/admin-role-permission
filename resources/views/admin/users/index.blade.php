@@ -38,8 +38,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flew">
-                                    <a href="" class="px-4 py-2 bg-blue-500 hover:to-blue-700 rounded-md" style="background-color: #8fd9ab;">Roles</a>
-                                    <a href="" class="px-4 py-2 bg-blue-500 hover:to-blue-700 rounded-md" style="background-color: #8fd9ab;">Permissions</a>
+                                    <a href="{{ route('admin.users.show', $user->id) }}" class="px-4 py-2 bg-blue-500 hover:to-blue-700 rounded-md" style="background-color: #8fd9ab;">Roles</a>
                                     <form action="{{ route('admin.users.destroy',$user->id) }}" method="post" class="px-4 py-2 bg-red-500 hover:to-red-700 rounded-md" style="background-color: #ff8c8c; width: 80px;"
                                         onsubmit="return confirm('Are you sure to deleted this?');"
                                     >

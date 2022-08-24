@@ -30,9 +30,13 @@
                                     {{ $permission->name }}
                                 </div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <a href="http://">Edit</a>
-                                <a href="http://">Delete</a>
+                            <td>
+                                <div class="flex justify-end">
+                                    <div class="spaxe-x-2">
+                                        <a href="{{ route('admin.permissions.edit',$permission->id ) }}" class="px-4 py-2 bg-blue-500 hover:to-blue-700 rounded-md" style="background-color: #8fd9ab;">Edit</a>
+                                        <a href="" class="px-4 py-2 bg-red-500 hover:to-red-700 rounded-md" style="background-color: #ff8c8c;">Delete</a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         @endforeach

@@ -25,4 +25,17 @@ class PermissionController extends Controller
         // route('admin.roles.index');
         return redirect(route('admin.permissions.index'));
     }
+
+    public function edit(Permission $permission){
+        return view('admin.permissions.edit',compact('permission'));
+    }
+
+    public function update(Request $request,Role $permission){
+        $validated = $request->validate([
+            'name' => ['required','min:3']
+        ]);
+        $permission->update($validated);
+        // route('admin.roles.index');
+        return redirect(route('admin.permissions.index'));
+    }
 }

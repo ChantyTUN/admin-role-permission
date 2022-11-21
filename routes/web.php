@@ -20,7 +20,7 @@ use App\Http\Controllers\Admin\PermissionController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// test chanty
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
